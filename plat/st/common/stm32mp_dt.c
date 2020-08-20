@@ -332,6 +332,7 @@ void dt_fill_device_info(struct dt_node_info *info, int node)
 	if (cuint != NULL) {
 		info->base = fdt32_to_cpu(*cuint);
 	} else {
+		INFO("reg NULL\n");
 		info->base = 0;
 	}
 
@@ -340,6 +341,7 @@ void dt_fill_device_info(struct dt_node_info *info, int node)
 		cuint++;
 		info->clock = (int)fdt32_to_cpu(*cuint);
 	} else {
+		INFO("reg NULL\n");
 		info->clock = -1;
 	}
 
@@ -348,6 +350,7 @@ void dt_fill_device_info(struct dt_node_info *info, int node)
 		cuint++;
 		info->reset = (int)fdt32_to_cpu(*cuint);
 	} else {
+		INFO("resets NULL\n");
 		info->reset = -1;
 	}
 

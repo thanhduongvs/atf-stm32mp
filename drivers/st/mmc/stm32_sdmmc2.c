@@ -700,6 +700,7 @@ static int stm32_sdmmc2_dt_get_config(void)
 
 	sdmmc_node = dt_match_instance_by_compatible(DT_SDMMC2_COMPAT,
 						     sdmmc2_params.reg_base);
+	INFO("sdmmc_node: %d\n", sdmmc_node);
 	if (sdmmc_node == -FDT_ERR_NOTFOUND) {
 		INFO("3");
 		return -FDT_ERR_NOTFOUND;
@@ -707,7 +708,7 @@ static int stm32_sdmmc2_dt_get_config(void)
 
 	dt_fill_device_info(&dt_info, sdmmc_node);
 	if (dt_info.status == DT_DISABLED) {
-		INFO("4");
+		INFO("4\n");
 		return -FDT_ERR_NOTFOUND;
 	}
 
