@@ -18,10 +18,9 @@
 	compatible = "st,stm32mp157c-kmtek-octavo", "st,stm32mp157";
 
 	aliases {
+		mmc0 = &sdmmc1;
+		mmc1 = &sdmmc2;
 		serial0 = &uart4;
-		serial1 = &usart3;
-		serial2 = &uart7;
-		serial3 = &usart2;
 	};
 
 	chosen {
