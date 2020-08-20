@@ -687,27 +687,32 @@ static int stm32_sdmmc2_dt_get_config(void)
 	void *fdt = NULL;
 	const fdt32_t *cuint;
 	struct dt_node_info dt_info;
-
+	INFO("start: %s", __func__);
 	if (fdt_get_address(&fdt) == 0) {
+		INFO("1");
 		return -FDT_ERR_NOTFOUND;
 	}
 
 	if (fdt == NULL) {
+		INFO("2");
 		return -FDT_ERR_NOTFOUND;
 	}
 
 	sdmmc_node = dt_match_instance_by_compatible(DT_SDMMC2_COMPAT,
 						     sdmmc2_params.reg_base);
 	if (sdmmc_node == -FDT_ERR_NOTFOUND) {
+		INFO("3");
 		return -FDT_ERR_NOTFOUND;
 	}
 
 	dt_fill_device_info(&dt_info, sdmmc_node);
 	if (dt_info.status == DT_DISABLED) {
+		INFO("4");
 		return -FDT_ERR_NOTFOUND;
 	}
 
 	if (dt_set_pinctrl_config(sdmmc_node) != 0) {
+		INFO("5");
 		return -FDT_ERR_BADVALUE;
 	}
 
